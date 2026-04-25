@@ -27,6 +27,7 @@ import {
 import BlurReveal from "@/components/satori-ui/blur-reveal"
 import SlideUpReveal from "@/components/satori-ui/slide-up-reveal"
 import KineticGrid from "@/components/satori-ui/kinetic-grid"
+import BeaconBadge from "@/components/satori-ui/beacon-badge"
 
 const ScalableWebApp: React.FC = () => {
   return (
@@ -76,27 +77,8 @@ const ScalableWebApp: React.FC = () => {
       </header>
 
       {/* 1. Hero Section */}
-      <section className="relative mx-auto flex max-w-5xl flex-col items-center px-6 pt-32 pb-24 text-center md:pt-48 md:pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.5,
-            ease: "easeOut",
-          }}
-          className="mb-2 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 backdrop-blur-sm"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-400" />
-          </span>
-          <BlurReveal
-            className="text-[11px] tracking-widest text-white text-white/60 uppercase"
-            speedReveal={3}
-          >
-            Accepting new projects
-          </BlurReveal>
-        </motion.div>
+      <section className="relative mx-auto flex max-w-5xl flex-col items-center px-6 pt-32 pb-24 text-center md:pb-32">
+        <BeaconBadge label="Accepting new projects" beconColor="green" border="full" staticTheme="dark" />
         <h1 className="max-w-4xl text-4xl leading-tight font-semibold tracking-tighter text-zinc-50 md:text-6xl lg:text-7xl">
           <SlideUpReveal
             split="words"
