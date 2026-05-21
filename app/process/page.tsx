@@ -1,12 +1,14 @@
+"use client"
 import React from "react"
 import { PageLayout } from "@/components/page-layout"
 import { MessageSquare, Activity, PenTool, CodeIcon, ShieldCheck, Rocket, TrendingUp } from "lucide-react"
+import SlideUp from "@/components/satori-ui/slide-up"
 
 export default function ProcessPage() {
   return (
     <PageLayout>
       <section className="mx-auto w-full max-w-6xl px-6 py-32 relative">
-        <div className="mb-20">
+        <SlideUp className="mb-20">
           <p className="text-[10px] font-bold tracking-widest text-green-500 uppercase mb-4">OUR PARTNER</p>
           <h1 className="text-4xl font-semibold tracking-tighter text-zinc-50 md:text-6xl max-w-2xl mb-6">
             A Partnership<br/><span className="text-zinc-500">Built on Trust.</span>
@@ -14,7 +16,7 @@ export default function ProcessPage() {
           <p className="text-sm text-zinc-400 max-w-xl leading-relaxed">
             Building great software is a journey. We've refined our process to be collaborative, transparent, and focused on delivering real human value.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="relative">
           {/* Vertical Timeline Line */}
@@ -30,7 +32,7 @@ export default function ProcessPage() {
               { num: "6", title: "The Big Launch", icon: <Rocket size={16}/>, color: "text-cyan-500", border: "border-cyan-500/30", bg: "bg-cyan-500/10", desc: "Moving from development to production is a celebration. We handle the technical heavy lifting across app stores and cloud environments.", align: "right" },
               { num: "7", title: "Growing Together", icon: <TrendingUp size={16}/>, color: "text-emerald-500", border: "border-emerald-500/30", bg: "bg-emerald-500/10", desc: "Launch is just the beginning. We stay by your side to monitor, optimize, and scale your product as your business evolves.", align: "left" },
             ].map((step, i) => (
-              <div key={i} className={`relative flex flex-col md:flex-row items-center justify-between w-full ${step.align === 'right' ? 'md:flex-row-reverse' : ''}`}>
+              <SlideUp key={i} delay={i * 0.06} className={`relative flex flex-col md:flex-row items-center justify-between w-full ${step.align === 'right' ? 'md:flex-row-reverse' : ''}`}>
                 <div className="w-full md:w-5/12 mb-8 md:mb-0">
                   <div className={`rounded-3xl border border-white/[0.08] bg-zinc-950 p-8 hover:border-zinc-700 transition-colors ${step.align === 'right' ? 'md:text-right' : 'text-left'}`}>
                     <div className={`mb-6 inline-flex h-10 w-10 items-center justify-center rounded-lg border ${step.border} ${step.bg} ${step.color}`}>
@@ -47,7 +49,7 @@ export default function ProcessPage() {
                 </div>
 
                 <div className="w-full md:w-5/12"></div>
-              </div>
+              </SlideUp>
             ))}
           </div>
         </div>

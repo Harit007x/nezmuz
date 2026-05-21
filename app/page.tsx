@@ -29,6 +29,7 @@ import {
 } from "lucide-react"
 import BlurReveal from "@/components/satori-ui/blur-reveal"
 import SlideUpReveal from "@/components/satori-ui/slide-up-reveal"
+import SlideUp from "@/components/satori-ui/slide-up"
 import { PageLayout } from "@/components/page-layout"
 
 export default function Home() {
@@ -87,12 +88,12 @@ export default function Home() {
 
       {/* 2. High-End Engineering Solutions */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24 border-t border-white/[0.05]">
-        <div className="mb-16 text-center md:text-left">
+        <SlideUp className="mb-16 text-center md:text-left">
           <p className="text-[10px] font-bold tracking-widest text-blue-500 uppercase mb-4">OUR EXPERTISE</p>
           <h2 className="text-3xl font-semibold tracking-tighter text-zinc-50 md:text-4xl">
             High-End Engineering <br/>Solutions
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
@@ -103,7 +104,7 @@ export default function Home() {
             { icon: <PenTool size={20} />, title: "UI/UX & Motion", tags: ["Premium Design", "Fluid Animations", "Interactive Web"], desc: "Engaging digital experiences that captivate." },
             { icon: <Network size={20} />, title: "Global Delivery", tags: ["Distributed Teams", "Agile Method", "Continuous Delivery"], desc: "Seamless project execution across borders." },
           ].map((item, i) => (
-            <div key={i} className="group flex h-full flex-col rounded-2xl border border-white/[0.08] bg-zinc-900/30 p-8 backdrop-blur-xl transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/50">
+            <SlideUp key={i} delay={i * 0.08} className="group flex h-full flex-col rounded-2xl border border-white/[0.08] bg-zinc-900/30 p-8 backdrop-blur-xl transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/50">
               <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950 text-zinc-400 group-hover:text-zinc-100 group-hover:border-zinc-700 transition-colors">
                 {item.icon}
               </div>
@@ -116,19 +117,19 @@ export default function Home() {
               <a href="/services" className="mt-auto flex items-center gap-2 text-xs font-medium text-zinc-500 hover:text-zinc-300 transition-colors">
                 EXPLORE SERVICES <ArrowRight size={12} />
               </a>
-            </div>
+            </SlideUp>
           ))}
         </div>
       </section>
 
       {/* 3. Core Technical Capabilities */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24 border-t border-white/[0.05] bg-zinc-950/40">
-        <div className="mb-16 text-center">
+        <SlideUp className="mb-16 text-center">
           <p className="text-[10px] font-bold tracking-widest text-purple-500 uppercase mb-4">OUR PLATFORMS</p>
           <h2 className="text-3xl font-semibold tracking-tighter text-zinc-50 md:text-4xl">
             Core Technical<br/>Capabilities
           </h2>
-        </div>
+        </SlideUp>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-4xl mx-auto">
           {[
@@ -137,27 +138,27 @@ export default function Home() {
             { icon: <Bot size={20} className="text-emerald-500" />, title: "AI-Driven Automation", desc: "Integration of modern AI and LLM technologies to streamline complex business workflows." },
             { icon: <Lock size={20} className="text-red-500" />, title: "Secure & Reliable APIs", desc: "Building robust backend architectures with a focus on data integrity, low latency, and enterprise-grade security." },
           ].map((item, i) => (
-            <div key={i} className="flex flex-col rounded-2xl border border-white/[0.05] bg-zinc-950 p-8 hover:border-white/[0.1] transition-colors">
+            <SlideUp key={i} delay={i * 0.1} className="flex flex-col rounded-2xl border border-white/[0.05] bg-zinc-950 p-8 hover:border-white/[0.1] transition-colors">
               <div className="mb-4">
                 {item.icon}
               </div>
               <h3 className="mb-3 text-lg font-medium tracking-tight text-zinc-100">{item.title}</h3>
               <p className="text-sm leading-relaxed text-zinc-400">{item.desc}</p>
-            </div>
+            </SlideUp>
           ))}
         </div>
       </section>
 
       {/* 4. Our Development Process (Home View) */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24 border-t border-white/[0.05]">
-        <div className="mb-16 text-center">
+        <SlideUp className="mb-16 text-center">
           <p className="text-[10px] font-bold tracking-widest text-green-500 uppercase mb-4">HOW WE WORK</p>
           <h2 className="text-3xl font-semibold tracking-tighter text-zinc-50 md:text-4xl">
             Our Development<br/>Process
           </h2>
-        </div>
+        </SlideUp>
 
-        <div className="relative flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-4 py-8">
+        <SlideUp delay={0.2} className="relative flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-4 py-8">
           <div className="absolute left-0 top-1/2 -z-10 hidden h-[1px] w-full -translate-y-1/2 bg-zinc-800 md:block"></div>
           {["Discovery", "Strategy", "UI/UX Design", "Development", "Testing", "Launch", "Scaling"].map((step, i) => (
             <div key={i} className="flex flex-col items-center gap-4">
@@ -167,15 +168,15 @@ export default function Home() {
               <span className="text-[10px] font-bold tracking-wider text-zinc-500 uppercase text-center max-w-[80px]">{step}</span>
             </div>
           ))}
-        </div>
+        </SlideUp>
       </section>
 
       {/* 5. Modern Tech Stack */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24 border-t border-white/[0.05] bg-zinc-950/40">
-        <div className="mb-16 text-center">
+        <SlideUp className="mb-16 text-center">
           <p className="text-[10px] font-bold tracking-widest text-blue-500 uppercase mb-4">OUR ARCHITECTURE</p>
           <h2 className="text-3xl font-semibold tracking-tighter text-zinc-50 md:text-4xl">Modern Tech Stack</h2>
-        </div>
+        </SlideUp>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
@@ -184,7 +185,7 @@ export default function Home() {
             { title: "Data & AI", icon: <Database size={16} />, tools: ["PostgreSQL", "MongoDB", "Redis", "OpenAI", "TensorFlow"] },
             { title: "Cloud Infrastructure", icon: <Cloud size={16} />, tools: ["AWS / GCP", "Docker", "Kubernetes", "Vercel", "Terraform"] },
           ].map((col, i) => (
-            <div key={i} className="rounded-2xl border border-white/[0.05] bg-zinc-900/30 p-8">
+            <SlideUp key={i} delay={i * 0.1} className="rounded-2xl border border-white/[0.05] bg-zinc-900/30 p-8">
               <div className="mb-6 flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950 text-zinc-400">
                 {col.icon}
               </div>
@@ -197,7 +198,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </SlideUp>
           ))}
         </div>
       </section>
@@ -205,7 +206,7 @@ export default function Home() {
       {/* 6. Why Industry Leaders Choose Zynetz */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24 border-t border-white/[0.05]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
+          <SlideUp>
             <p className="text-[10px] font-bold tracking-widest text-purple-500 uppercase mb-4">THE ZYNETZ ADVANTAGE</p>
             <h2 className="text-3xl font-semibold tracking-tighter text-zinc-50 md:text-4xl mb-6">
               Why Industry Leaders Choose Zynetz
@@ -216,7 +217,7 @@ export default function Home() {
             <a href="/about" className="mt-8 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950 px-6 py-2.5 text-xs font-semibold text-zinc-100 hover:bg-zinc-900 transition-colors">
               LEARN MORE ABOUT US <ArrowRight size={14} />
             </a>
-          </div>
+          </SlideUp>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
@@ -225,10 +226,10 @@ export default function Home() {
               { title: "Fluid Motion", desc: "We integrate smooth animations and transitions to elevate user experience." },
               { title: "Full Stack", desc: "End-to-end development from initial concept to deployment." },
             ].map((item, i) => (
-              <div key={i} className="rounded-2xl border border-white/[0.05] bg-zinc-950 p-6 hover:border-white/[0.1] transition-colors">
+              <SlideUp key={i} delay={0.1 + i * 0.08} className="rounded-2xl border border-white/[0.05] bg-zinc-950 p-6 hover:border-white/[0.1] transition-colors">
                 <h4 className="mb-2 text-sm font-semibold text-zinc-100">{item.title}</h4>
                 <p className="text-xs leading-relaxed text-zinc-400">{item.desc}</p>
-              </div>
+              </SlideUp>
             ))}
           </div>
         </div>
@@ -236,17 +237,19 @@ export default function Home() {
 
       {/* 7. Industries We Transform */}
       <section className="mx-auto w-full max-w-6xl px-6 py-24 border-t border-white/[0.05] text-center mb-12">
-        <p className="text-[10px] font-bold tracking-widest text-emerald-500 uppercase mb-4">BEYOND BORDERS</p>
-        <h2 className="text-2xl font-semibold tracking-tighter text-zinc-50 md:text-3xl mb-12">
-          Industries We<br/>Transform
-        </h2>
-        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+        <SlideUp>
+          <p className="text-[10px] font-bold tracking-widest text-emerald-500 uppercase mb-4">BEYOND BORDERS</p>
+          <h2 className="text-2xl font-semibold tracking-tighter text-zinc-50 md:text-3xl mb-12">
+            Industries We<br/>Transform
+          </h2>
+        </SlideUp>
+        <SlideUp delay={0.15} className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
           {["FINTECH", "HEALTHCARE", "E-COMMERCE", "SAAS", "REAL ESTATE", "LOGISTICS", "EDTECH", "ENTERTAINMENT", "AI & MACHINE LEARNING"].map((industry, i) => (
             <span key={i} className="rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-[10px] font-semibold text-zinc-300 tracking-wider hover:bg-zinc-800 hover:text-white transition-colors cursor-default">
               {industry}
             </span>
           ))}
-        </div>
+        </SlideUp>
       </section>
     </PageLayout>
   )

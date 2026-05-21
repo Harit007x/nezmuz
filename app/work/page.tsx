@@ -1,13 +1,15 @@
+"use client"
 import React from "react"
 import { PageLayout } from "@/components/page-layout"
 import { Lock, Layers3, Bot, Smartphone, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import SlideUp from "@/components/satori-ui/slide-up"
 
 export default function WorkPage() {
   return (
     <PageLayout>
       <section className="mx-auto w-full max-w-6xl px-6 py-32">
-        <div className="relative z-10 mb-20">
+        <SlideUp className="relative z-10 mb-20">
           <p className="text-[10px] font-bold tracking-widest text-blue-500 uppercase mb-4">OUR EXPERTISE</p>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <h1 className="text-4xl font-semibold tracking-tighter text-zinc-50 md:text-6xl max-w-2xl">
@@ -17,11 +19,10 @@ export default function WorkPage() {
               We specialize in engineering complex digital products that require high performance, security, and scalability. Every project is a commitment to technical excellence.
             </p>
           </div>
-        </div>
+        </SlideUp>
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Service Card 1 */}
-          <div className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
+          <SlideUp delay={0} className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
             <div className="mb-10 flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100">
               <Lock size={24} />
             </div>
@@ -34,10 +35,9 @@ export default function WorkPage() {
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">SCALABILITY</span>
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">RELIABILITY</span>
             </div>
-          </div>
+          </SlideUp>
 
-          {/* Service Card 2 */}
-          <div className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
+          <SlideUp delay={0.1} className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
             <div className="mb-10 flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100">
               <Layers3 size={24} />
             </div>
@@ -50,10 +50,9 @@ export default function WorkPage() {
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">NEXT.JS</span>
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">MULTI-TENANT</span>
             </div>
-          </div>
+          </SlideUp>
 
-          {/* Service Card 3 */}
-          <div className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
+          <SlideUp delay={0.2} className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
             <div className="mb-10 flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100">
               <Bot size={24} />
             </div>
@@ -66,10 +65,9 @@ export default function WorkPage() {
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">AUTOMATION</span>
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">INTELLIGENCE</span>
             </div>
-          </div>
+          </SlideUp>
 
-          {/* Service Card 4 */}
-          <div className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
+          <SlideUp delay={0.3} className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-10 md:p-12 hover:border-zinc-700 transition-colors">
             <div className="mb-10 flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100">
               <Smartphone size={24} />
             </div>
@@ -82,15 +80,15 @@ export default function WorkPage() {
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">NATIVE-FEEL</span>
               <span className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-[10px] text-zinc-400 uppercase tracking-widest">UX-FIRST</span>
             </div>
-          </div>
+          </SlideUp>
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center mt-32 text-center">
+        <SlideUp delay={0.2} className="relative z-10 flex flex-col items-center justify-center mt-32 text-center">
           <p className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-4">ENGINEERING A VISION?</p>
           <Link href="/contact" className="rounded-full bg-zinc-100 px-8 py-3.5 text-sm font-semibold text-zinc-950 transition-all hover:bg-zinc-200 inline-flex items-center gap-2">
             Start a Conversation <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideUp>
       </section>
     </PageLayout>
   )

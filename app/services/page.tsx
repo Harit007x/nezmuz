@@ -1,13 +1,15 @@
+"use client"
 import React from "react"
 import { PageLayout } from "@/components/page-layout"
 import { Smartphone, Globe, Server, Bot, Cloud, PenTool, LineChart, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import SlideUp from "@/components/satori-ui/slide-up"
 
 export default function ServicesPage() {
   return (
     <PageLayout>
       <section className="mx-auto w-full max-w-6xl px-6 py-32">
-        <div className="relative z-10 mb-20">
+        <SlideUp className="relative z-10 mb-20">
           <p className="text-[10px] font-bold tracking-widest text-blue-500 uppercase mb-4">DIGITAL TRANSFORMATION</p>
           <h1 className="text-4xl font-semibold tracking-tighter text-zinc-50 md:text-5xl max-w-3xl mb-6">
             Comprehensive<br/>Technology Ecosystem.
@@ -15,7 +17,7 @@ export default function ServicesPage() {
           <p className="text-sm text-zinc-400 max-w-2xl leading-relaxed">
             Our end-to-end full-stack capabilities ensure unified implementation across your entire product ecosystem. We seamlessly navigate complex domains to build interconnected solutions that scale.
           </p>
-        </div>
+        </SlideUp>
 
         <div className="relative z-10 space-y-6">
           {[
@@ -48,7 +50,7 @@ export default function ServicesPage() {
               tags: ["ANALYTICS", "SEO", "GROWTH"], features: ["Conversion Optimization", "Technical SEO Audits", "Data-Driven Insights"]
             },
           ].map((sys, i) => (
-            <div key={i} className="flex flex-col lg:flex-row rounded-3xl border border-white/[0.08] bg-zinc-950 p-8 hover:border-zinc-700 transition-colors gap-8">
+            <SlideUp key={i} delay={i * 0.06} className="flex flex-col lg:flex-row rounded-3xl border border-white/[0.08] bg-zinc-950 p-8 hover:border-zinc-700 transition-colors gap-8">
               <div className="lg:w-1/3">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100">
                   {sys.icon}
@@ -70,11 +72,11 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </SlideUp>
           ))}
         </div>
 
-        <div className="relative z-10 mt-32 text-center">
+        <SlideUp delay={0.2} className="relative z-10 mt-32 text-center">
           <p className="text-sm font-semibold tracking-tight text-zinc-300 mb-8">Empowering industries worldwide.</p>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mb-12">
             {["AWS", "REACT NATIVE", "AI", "NEXT.JS", "GCP", "PYTHON", "NODE.JS", "FLUTTER", "MONGODB", "POSTGRESQL", "DOCKER"].map((tech, i) => (
@@ -86,7 +88,7 @@ export default function ServicesPage() {
           <Link href="/contact" className="rounded-full bg-zinc-100 px-8 py-3.5 text-sm font-semibold text-zinc-950 transition-all hover:bg-zinc-200 inline-flex items-center gap-2">
             Start a New Project <ArrowRight size={16} />
           </Link>
-        </div>
+        </SlideUp>
       </section>
     </PageLayout>
   )

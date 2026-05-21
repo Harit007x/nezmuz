@@ -22,6 +22,7 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@satoriui": "https://satoriui.site/r/{name}.json"
+    "@satoriui": "https://satoriui.site/r/{name}.json",
+    "@efferd": "https://efferd.com/r/{style}/{name}.json"
   }
 }

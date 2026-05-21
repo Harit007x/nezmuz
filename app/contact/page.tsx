@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import { PageLayout } from "@/components/page-layout"
 import { ArrowRight, Send } from "lucide-react"
+import SlideUp from "@/components/satori-ui/slide-up"
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -20,7 +21,7 @@ export default function ContactPage() {
     <PageLayout>
       <section className="mx-auto w-full max-w-6xl px-6 py-32 border-t border-white/[0.05]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
+          <SlideUp>
             <p className="text-[10px] font-bold tracking-widest text-emerald-500 uppercase mb-4">START A CONVERSATION</p>
             <h1 className="text-4xl font-semibold tracking-tighter text-zinc-50 md:text-6xl mb-6">
               Ready to Build<br/>the Future?
@@ -39,9 +40,9 @@ export default function ContactPage() {
                 <p className="text-sm text-zinc-300">San Francisco, CA<br/>Bangalore, India</p>
               </div>
             </div>
-          </div>
+          </SlideUp>
 
-          <div className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-8 md:p-12">
+          <SlideUp delay={0.15} className="rounded-3xl border border-white/[0.08] bg-zinc-950 p-8 md:p-12">
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center h-full text-center py-12">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20 text-green-400">
@@ -84,7 +85,7 @@ export default function ContactPage() {
                 </button>
               </form>
             )}
-          </div>
+          </SlideUp>
         </div>
       </section>
     </PageLayout>
