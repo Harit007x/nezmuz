@@ -158,8 +158,8 @@ export default function Home() {
           </h2>
         </SlideUp>
 
-        <SlideUp delay={0.2} className="relative flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-4 py-8">
-          <div className="absolute left-0 top-1/2 -z-10 hidden h-[1px] w-full -translate-y-1/2 bg-zinc-800 md:block"></div>
+        <SlideUp delay={0.2} className="relative flex flex-wrap md:flex-nowrap justify-center md:justify-between items-start gap-4 py-8">
+          <div className="absolute left-0 top-[calc(2rem+32px)] -z-10 hidden h-[1px] w-full bg-zinc-800 md:block"></div>
           {["Discovery", "Strategy", "UI/UX Design", "Development", "Testing", "Launch", "Scaling"].map((step, i) => (
             <div key={i} className="flex flex-col items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950 text-sm font-medium text-zinc-400 z-10 shadow-xl">
