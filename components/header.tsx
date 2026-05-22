@@ -8,13 +8,14 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import EncodedReveal from "./satori-ui/encoded-reveal";
+import Image from "next/image";
 
 export const navLinks = [
 	{ label: "Services", href: "/services" },
 	{ label: "Work", href: "/work" },
 	{ label: "Process", href: "/process" },
 	{ label: "About", href: "/about" },
-	{ label: "Contact", href: "/contact" },
+	// { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -121,7 +122,7 @@ export function Header() {
 					href="/"
 					onClick={() => setIsHovered(false)}
 				>
-					<div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black font-bold text-xs">Z</div>
+					<Image src="/white_whole.png" alt="Zynetz Logo" width={24} height={24} className="object-contain rounded-sm" />
 					<EncodedReveal onHover className="text-lg font-bold tracking-tight">ZYNETZ</EncodedReveal>
 
 				</Link>

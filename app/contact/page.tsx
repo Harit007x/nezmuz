@@ -33,11 +33,15 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div>
                 <h4 className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">EMAIL INQUIRIES</h4>
-                <a href="mailto:hello@zynetz.com" className="text-sm font-medium text-zinc-100 hover:text-white transition-colors">hello@zynetz.com</a>
+                <a href="mailto:admin@zynetz.com" className="text-sm font-medium text-zinc-100 hover:text-white transition-colors">admin@zynetz.com</a>
               </div>
               <div>
                 <h4 className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">GLOBAL HQ</h4>
-                <p className="text-sm text-zinc-300">San Francisco, CA<br/>Bangalore, India</p>
+                <p className="text-sm text-zinc-300">Ahmedabad, Gujarat<br/> India</p>
+              </div>
+              <div>
+                <h4 className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">Whatsapp No</h4>
+                <p className="text-sm text-zinc-300">+91 9274466461</p>
               </div>
             </div>
           </SlideUp>

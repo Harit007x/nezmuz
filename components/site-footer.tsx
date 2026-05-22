@@ -2,6 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { Globe, Zap, Linkedin, Github, Mail, ArrowRight } from "lucide-react"
 import EncodedReveal from "./satori-ui/encoded-reveal"
+import Image from "next/image"
 
 export function SiteFooter() {
   return (
@@ -14,7 +15,7 @@ export function SiteFooter() {
       <div className="relative z-10 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
         <div className="col-span-1 lg:col-span-1">
           <div className="flex items-center gap-2 font-semibold tracking-tighter text-zinc-100 uppercase mb-6 cursor-pointer">
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black font-bold text-xs">Z</div>
+            <Image src="/white_whole.png" alt="Zynetz Logo" width={24} height={24} className="object-contain rounded-sm" />
             <EncodedReveal onHover className="text-lg font-bold tracking-tight">ZYNETZ</EncodedReveal>
           </div>
           <p className="text-xs leading-relaxed text-zinc-400 mb-8 max-w-xs">
