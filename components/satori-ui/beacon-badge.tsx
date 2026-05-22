@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 export type BeaconColor =
   | "green"
@@ -28,7 +29,7 @@ export interface BeaconBadgeProps {
 
 const colorMap: Record<BeaconColor, { light: string; dark: string }> = {
   green: { light: "bg-emerald-500", dark: "bg-emerald-400" },
-  blue: { light: "bg-sky-500", dark: "bg-sky-400" },
+  blue: { light: "bg-sky-500", dark: "bg-sky-500" },
   purple: { light: "bg-purple-500", dark: "bg-purple-400" },
   yellow: { light: "bg-yellow-500", dark: "bg-yellow-400" },
   pink: { light: "bg-pink-500", dark: "bg-pink-400" },
@@ -99,7 +100,10 @@ const BeaconBadge = ({
         duration: 0.5,
         ease: "easeOut",
       }}
-      className={`inline-flex items-center gap-2 px-3 py-1.5 border backdrop-blur-sm ${borderMap[border]} ${themeClasses.container} ${className || ""}`}
+      className={cn(
+        `inline-flex items-center gap-2 px-3 py-1.5 border backdrop-blur-sm ${borderMap[border]} ${themeClasses.container}`,
+        className
+      )}
     >
       <span className="relative flex h-1.5 w-1.5 shrink-0">
         {beconPulses && (
@@ -124,7 +128,7 @@ const BeaconBadge = ({
         }}
         initial="hidden"
         animate="visible"
-        className={`text-[11px] tracking-widest uppercase font-medium ${themeClasses.text}`}
+        className={`text-[11px] tracking-widest uppercase font-medium ${className?.match(/text-\S+/) ? '' : themeClasses.text}`}
       >
         {label.split("").map((char, index) => (
           <motion.span

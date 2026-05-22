@@ -1,100 +1,168 @@
 "use client";
+
 import { cn } from "@/lib/utils";
-import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
+import EncodedReveal from "./satori-ui/encoded-reveal";
 
 export const navLinks = [
-	{
-		label: "Services",
-		href: "/services",
-	},
-	{
-		label: "Work",
-		href: "/work",
-	},
-	{
-		label: "Process",
-		href: "/process",
-	},
-	{
-		label: "About",
-		href: "/about",
-	},
-	{
-		label: "Contact",
-		href: "/contact",
-	},
+	{ label: "Services", href: "/services" },
+	{ label: "Work", href: "/work" },
+	{ label: "Process", href: "/process" },
+	{ label: "About", href: "/about" },
+	{ label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
-	const scrolled = useScroll(10);
 	const pathname = usePathname();
-	const [collapsed, setCollapsed] = useState(false);
-	const prevPathname = useRef(pathname);
+	const [isHovered, setIsHovered] = useState(false);
+	const [isAtTop, setIsAtTop] = useState(true);
+	
+	const { scrollY } = useScroll();
+	
+	useMotionValueEvent(scrollY, "change", (latest) => {
+		setIsAtTop(latest <= 64);
+	});
+	
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-	// When the route changes, keep the header in its current visual state
-	// briefly, then smoothly animate back to the expanded state
-	useEffect(() => {
-		if (prevPathname.current !== pathname) {
-			prevPathname.current = pathname;
-			// On navigation, force collapsed to false with a slight delay
-			// so the CSS transition animates the reverse smoothly
-			const timer = setTimeout(() => {
-				setCollapsed(false);
-			}, 50);
-			return () => clearTimeout(timer);
-		}
-	}, [pathname]);
+	const handleMouseEnter = () => {
+		if (timeoutRef.current) clearTimeout(timeoutRef.current);
+		setIsHovered(true);
+	};
 
-	// Sync scroll state into collapsed, but only when not navigating
+	const handleMouseLeave = () => {
+		timeoutRef.current = setTimeout(() => {
+			setIsHovered(false);
+		}, 300);
+	};
+
 	useEffect(() => {
-		setCollapsed(scrolled);
-	}, [scrolled]);
+		return () => {
+			if (timeoutRef.current) clearTimeout(timeoutRef.current);
+		};
+	}, []);
+
+	const springTransition = {
+		type: "spring",
+		bounce: 0,
+		duration: 0.5,
+	} as const;
 
 	return (
-		<header
-			className={cn(
-				"fixed left-0 right-0 z-50 mx-auto w-full transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] rounded-xl",
-				collapsed
-					? "max-w-3xl top-3 bg-zinc-950/80 backdrop-blur-xl shadow-2xl shadow-black/40"
-					: "max-w-5xl top-0 bg-transparent shadow-none"
-			)}
-			style={{
-				borderWidth: "1px",
-				borderStyle: "solid",
-				borderColor: collapsed ? "rgba(255, 255, 255, 0.08)" : "rgba(255, 255, 255, 0)",
-				transition: "all 500ms cubic-bezier(0.25, 0.1, 0.25, 1)",
-			}}
-		>
-			<nav
+		<div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none h-[100px]">
+			{/* Invisible Hover Area at the very top edge */}
+			<div
+				className="absolute top-0 left-0 right-0 h-[40px] z-10 pointer-events-auto"
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
+			/>
+
+			{/* The Island */}
+			<motion.div
+				initial={false}
+				animate={{ 
+					y: isHovered || isAtTop ? "0%" : "-100%",
+					width: "100%",
+					maxWidth: isAtTop ? "1200px" : "800px",
+					height: isAtTop ? "80px" : "64px",
+					borderBottomLeftRadius: isAtTop ? "0px" : "24px",
+					borderBottomRightRadius: isAtTop ? "0px" : "24px",
+					backgroundColor: isAtTop ? "transparent" : "rgba(255, 255, 255, 0.03)",
+					boxShadow: isAtTop ? "none" : "0 8px 32px rgba(255,255,255,0.04), inset 0 -1px 0 rgba(255,255,255,0.05)"
+				}}
+				transition={springTransition}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
 				className={cn(
-					"flex w-full items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
-					collapsed ? "h-14 px-3" : "h-16 px-5"
+					"relative pointer-events-auto flex items-center justify-between px-5 z-20",
+					!isAtTop && "backdrop-blur-xl"
 				)}
 			>
+				{/* Left Reverse Curve connecting to top bezel */}
+				<motion.div 
+					className="absolute top-0 w-[16px] h-[16px] pointer-events-none"
+					animate={{ opacity: isAtTop ? 0 : 1 }}
+					transition={springTransition}
+					style={{
+						left: '-16px',
+						backgroundColor: 'rgba(255, 255, 255, 0.05)',
+						backdropFilter: 'blur(24px)',
+						WebkitBackdropFilter: 'blur(24px)',
+						maskImage: 'radial-gradient(circle at 0 100%, transparent 16px, black 16.5px)',
+						WebkitMaskImage: 'radial-gradient(circle at 0 100%, transparent 16px, black 16.5px)',
+						transform: 'translateZ(0)',
+					}}
+				/>
+
+				{/* Right Reverse Curve connecting to top bezel */}
+				<motion.div 
+					className="absolute top-0 w-[16px] h-[16px] pointer-events-none"
+					animate={{ opacity: isAtTop ? 0 : 1 }}
+					transition={springTransition}
+					style={{
+						right: '-16px',
+						backgroundColor: 'rgba(255, 255, 255, 0.05)',
+						backdropFilter: 'blur(24px)',
+						WebkitBackdropFilter: 'blur(24px)',
+						maskImage: 'radial-gradient(circle at 100% 100%, transparent 16px, black 16.5px)',
+						WebkitMaskImage: 'radial-gradient(circle at 100% 100%, transparent 16px, black 16.5px)',
+						transform: 'translateZ(0)',
+					}}
+				/>
+
+				{/* Content inside the notch */}
 				<Link
 					className="flex items-center gap-2 rounded-md p-2 font-semibold tracking-tighter text-zinc-100 uppercase hover:bg-white/[0.05] transition-colors"
 					href="/"
+					onClick={() => setIsHovered(false)}
 				>
-					<div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black font-bold text-xs">N</div>
-					ZYNETZ
+					<div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black font-bold text-xs">Z</div>
+					<EncodedReveal onHover className="text-lg font-bold tracking-tight">ZYNETZ</EncodedReveal>
+
 				</Link>
+
 				<div className="hidden items-center gap-2 md:flex">
 					<div className="flex items-center gap-1">
-						{navLinks.map((link) => (
-							<Button key={link.label} size="default" variant="ghost" render={<Link href={link.href} />} nativeButton={false} className="text-sm text-zinc-400 hover:text-zinc-100 hover:bg-white/[0.05]">{link.label}</Button>
+						{navLinks.map((link, i) => (
+							<motion.div
+								key={link.label}
+								initial={{ opacity: 0, y: -8 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.4, delay: 0.3 + i * 0.07, ease: "easeOut" }}
+							>
+								<Link
+									href={link.href}
+									onClick={() => setIsHovered(false)}
+									className={cn(
+										"px-3 py-1.5 text-sm font-medium text-zinc-400 hover:text-zinc-100 rounded-full hover:bg-white/[0.05] transition-colors",
+										pathname === link.href && "text-zinc-100 bg-white/[0.05]"
+									)}
+								>
+									{link.label}
+								</Link>
+							</motion.div>
 						))}
 					</div>
-					<Button size="default" variant="outline" render={<Link href="/contact" />} nativeButton={false} className="text-sm border-white/[0.08] bg-transparent text-zinc-100 hover:bg-white/[0.05] hover:text-white">
-						Book a Call
-					</Button>
+					<motion.div
+						initial={{ opacity: 0, y: -8 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.4, delay: 0.3 + navLinks.length * 0.07, ease: "easeOut" }}
+					>
+						<Button size="default" variant="outline" render={<Link href="/contact" onClick={() => setIsHovered(false)} />} nativeButton={false} className="text-sm border-white/[0.08] bg-transparent text-zinc-100 hover:bg-white/[0.05] hover:text-white ml-2">
+							Book a Call
+						</Button>
+					</motion.div>
 				</div>
-				<MobileNav />
-			</nav>
-		</header>
+				<div className="md:hidden">
+					<MobileNav />
+				</div>
+			</motion.div>
+		</div>
 	);
 }
+

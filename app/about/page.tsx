@@ -39,10 +39,10 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { name: "Harit", role: "FOUNDER & CTO", icon: <Terminal size={20}/> },
-            { name: "Alex Chen", role: "HEAD OF AI", icon: <Activity size={20}/> },
-            { name: "Sarah Jenkins", role: "LEAD DESIGNER", icon: <PenTool size={20}/> },
-            { name: "Michael Doe", role: "VP ENGINEERING", icon: <CodeIcon size={20}/> },
+            { name: "Harit Patel", role: "FOUNDER & CEO", icon: <Terminal size={20}/> },
+            { name: "Jigar Solanki", role: "COFOUNDER & CTO", icon: <Activity size={20}/> },
+            // { name: "Sarah Jenkins", role: "LEAD DESIGNER", icon: <PenTool size={20}/> },
+            // { name: "Michael Doe", role: "VP ENGINEERING", icon: <CodeIcon size={20}/> },
           ].map((leader, i) => (
             <SlideUp key={i} delay={i * 0.1} className="flex flex-col items-center justify-center rounded-3xl border border-white/[0.08] bg-zinc-950 p-8 text-center hover:border-zinc-700 transition-colors">
               <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-100">

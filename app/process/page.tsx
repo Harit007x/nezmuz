@@ -20,7 +20,7 @@ export default function ProcessPage() {
 
         <div className="relative">
           {/* Vertical Timeline Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-zinc-800 -translate-x-1/2 hidden md:block"></div>
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/20 -translate-x-1/2 hidden md:block"></div>
 
           <div className="space-y-12 md:space-y-24">
             {[

@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import { Globe, Zap, Linkedin, Github, Mail, ArrowRight } from "lucide-react"
+import EncodedReveal from "./satori-ui/encoded-reveal"
 
 export function SiteFooter() {
   return (
@@ -12,9 +13,9 @@ export function SiteFooter() {
       
       <div className="relative z-10 mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
         <div className="col-span-1 lg:col-span-1">
-          <div className="flex items-center gap-2 font-semibold tracking-tighter text-zinc-100 uppercase mb-6">
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black font-bold text-xs">N</div>
-            ZYNETZ
+          <div className="flex items-center gap-2 font-semibold tracking-tighter text-zinc-100 uppercase mb-6 cursor-pointer">
+            <div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black font-bold text-xs">Z</div>
+            <EncodedReveal onHover className="text-lg font-bold tracking-tight">ZYNETZ</EncodedReveal>
           </div>
           <p className="text-xs leading-relaxed text-zinc-400 mb-8 max-w-xs">
             A premium engineering collective dedicated to crafting high-performance digital ecosystems for global visionary founders.
@@ -66,7 +67,7 @@ export function SiteFooter() {
       
       <div className="relative z-10 mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4 border-t border-zinc-900 pt-8 text-[10px] font-medium tracking-widest text-zinc-500 uppercase">
         <div className="flex gap-6">
-          <span>© 2026 ZYNETZ ENGINEERING.</span>
+          <span>© 2026 Zynetz Technologies.</span>
           <a href="#" className="hover:text-zinc-300">PRIVACY</a>
           <a href="#" className="hover:text-zinc-300">TERMS</a>
         </div>

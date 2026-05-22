@@ -3,6 +3,7 @@ import React from "react"
 import DotGrid from "@/components/satori-ui/dot-grid"
 import { Header } from "./header"
 import { SiteFooter } from "./site-footer"
+import { ScrollToTop } from "./scroll-to-top"
 
 export function PageLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
       <Header />
       <main className="flex-1">{children}</main>
       <SiteFooter />
+      <ScrollToTop />
     </DotGrid>
   )
 }

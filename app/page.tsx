@@ -31,6 +31,7 @@ import BlurReveal from "@/components/satori-ui/blur-reveal"
 import SlideUpReveal from "@/components/satori-ui/slide-up-reveal"
 import SlideUp from "@/components/satori-ui/slide-up"
 import { PageLayout } from "@/components/page-layout"
+import BeaconBadge from "@/components/satori-ui/beacon-badge"
 
 export default function Home() {
   return (
@@ -41,11 +42,12 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1.5 backdrop-blur-sm"
+          // className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1.5 backdrop-blur-sm"
         >
-          <BlurReveal className="text-[10px] font-semibold tracking-widest text-blue-400 uppercase" speedReveal={3}>
-            ENGINEERING THE FUTURE
-          </BlurReveal>
+          {/* <BlurReveal className="text-[10px] font-semibold tracking-widest text-blue-400 uppercase" speedReveal={3}>
+            
+          </BlurReveal> */}
+          <BeaconBadge label="ENGINEERING THE FUTURE"  staticTheme="dark" className="text-blue-400 border-blue-500/20 bg-blue-500/10 backdrop-blur-sm mb-6"/>
         </motion.div>
         
         <h1 className="max-w-4xl text-5xl leading-tight font-semibold tracking-tighter text-zinc-50 md:text-6xl lg:text-7xl">
@@ -55,7 +57,7 @@ export default function Home() {
         </h1>
         
         <BlurReveal className="mt-6 max-w-2xl text-base leading-relaxed font-normal text-zinc-300 md:text-lg" speedReveal={3}>
-          Zynetz Engineering is a global engineering firm dedicated to building high-performance, robust and scalable digital products.
+          Zynetz Technologies is a global engineering firm dedicated to building high-performance, robust and scalable digital products.
         </BlurReveal>
         
         <motion.div
@@ -159,7 +161,7 @@ export default function Home() {
         </SlideUp>
 
         <SlideUp delay={0.2} className="relative flex flex-wrap md:flex-nowrap justify-center md:justify-between items-start gap-4 py-8">
-          <div className="absolute left-0 top-[calc(2rem+32px)] -z-10 hidden h-[1px] w-full bg-zinc-800 md:block"></div>
+          <div className="absolute left-0 top-[calc(2rem+32px)] -z-10 hidden h-[1px] w-full bg-white/20 md:block"></div>
           {["Discovery", "Strategy", "UI/UX Design", "Development", "Testing", "Launch", "Scaling"].map((step, i) => (
             <div key={i} className="flex flex-col items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950 text-sm font-medium text-zinc-400 z-10 shadow-xl">
