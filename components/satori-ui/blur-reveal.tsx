@@ -86,33 +86,17 @@ const BlurReveal = ({
           <span className="sr-only">{children}</span>
           {children &&
             children.split(" ").map((word, wordIndex, wordsArray) => (
-              <span
+              <motion.span
                 key={`word-${wordIndex}`}
+                variants={itemVariants}
                 className="inline-block whitespace-nowrap"
-                aria-hidden="true"
+                style={
+                  letterSpacing ? { marginRight: letterSpacing } : undefined
+                }
               >
-                {word.split("").map((char, charIndex) => (
-                  <motion.span
-                    key={`char-${wordIndex}-${charIndex}`}
-                    variants={itemVariants}
-                    className="inline-block"
-                    style={
-                      letterSpacing ? { marginRight: letterSpacing } : undefined
-                    }
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-                {wordIndex < wordsArray.length - 1 && (
-                  <motion.span
-                    key={`space-${wordIndex}`}
-                    variants={itemVariants}
-                    className="inline-block"
-                  >
-                    &nbsp;
-                  </motion.span>
-                )}
-              </span>
+                {word}
+                {wordIndex < wordsArray.length - 1 && "\u00A0"}
+              </motion.span>
             ))}
         </MotionTag>
       )}

@@ -86,7 +86,7 @@ export function Header() {
 			>
 				{/* Left Reverse Curve connecting to top bezel */}
 				<motion.div 
-					className="absolute top-0 w-[16px] h-[16px] pointer-events-none"
+					className="absolute top-0 w-[16px] h-[16px] pointer-events-none hidden md:block"
 					animate={{ opacity: isAtTop ? 0 : 1 }}
 					transition={springTransition}
 					style={{
@@ -102,7 +102,7 @@ export function Header() {
 
 				{/* Right Reverse Curve connecting to top bezel */}
 				<motion.div 
-					className="absolute top-0 w-[16px] h-[16px] pointer-events-none"
+					className="absolute top-0 w-[16px] h-[16px] pointer-events-none hidden md:block"
 					animate={{ opacity: isAtTop ? 0 : 1 }}
 					transition={springTransition}
 					style={{
